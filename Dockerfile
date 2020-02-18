@@ -1,7 +1,8 @@
 # Dockerfile to create nginx image that can be configured by env vars at runtime
 # from https://serverfault.com/a/919212/60385
 
-FROM nginx
+ARG ARCH=amd64
+FROM $ARCH/nginx
 
 ENV PORT=80 
 RUN mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.tmpl && \
